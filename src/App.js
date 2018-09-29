@@ -12,6 +12,7 @@ class BooksApp extends React.Component {
     return (
       <div>
         <Route exact path="/" component={HomePage} />
+        <Route exact path="/" component={Shelf} />
         <Route exact path="/search" component={SearchPage} />
       </div>
     );
