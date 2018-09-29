@@ -5,6 +5,8 @@ Users can add and remove books to each category (also known as a shelf).  By cli
 
 ![various books in different categories on a webpage](https://raw.githubusercontent.com/JS-goose/reactnd-project-myreads-starter/master/img/react-project1-a.png)
 
+![a menu showing each book can be moved between categories](.img/react-project1-b.png)
+
 ## Important
 The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md](SEARCH_TERMS.md). That list of terms are the _only_ terms that will work with the backend, so don't be surprised if your searches for Basket Weaving or Bubble Wrap don't come back with any results.
 
