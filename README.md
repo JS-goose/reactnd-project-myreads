@@ -5,7 +5,7 @@ Users can add and remove books to each category (also known as a shelf).  By cli
 
 ![various books in different categories on a webpage](https://raw.githubusercontent.com/JS-goose/reactnd-project-myreads-starter/master/img/react-project1-a.png)
 
-![a menu showing each book can be moved between categories](.img/react-project1-b.pnghttps://raw.githubusercontent.com/JS-goose/reactnd-project-myreads-starter/master/img/react-project1-b.png)
+![a menu showing each book can be moved between categories](https://raw.githubusercontent.com/JS-goose/reactnd-project-myreads-starter/master/img/react-project1-b.png)
 
 ![screenshot showing that books may be searched by name](https://raw.githubusercontent.com/JS-goose/reactnd-project-myreads-starter/master/img/screen-shot-2017-12-21-at-1.06.59-pm.png)
 
