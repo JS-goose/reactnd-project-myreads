@@ -252,9 +252,9 @@ class HomePage extends Component {
               </div>
             </div>
             <div className="open-search">
-              <a onClick={() => this.setState({ showSearchPage: true })}>
+              <Link to="/search">
                 Add a book
-              </a>
+              </Link>
             </div>
           </div>
         )}
