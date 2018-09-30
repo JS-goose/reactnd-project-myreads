@@ -13,9 +13,7 @@ class Book extends Component {
               style={{
                 width: 128,
                 height: 188,
-                backgroundImage: `url("${(this.props.book.imageLinks
-                  .thumbnail &&
-                  this.props.book.imageLinks.smallThumbnail) ||
+                backgroundImage: `url("${(this.props.book.imageLinks.thumbnail && this.props.book.imageLinks.) ||
                   "No image available"}")`,
               }}
             />
@@ -23,7 +21,7 @@ class Book extends Component {
               <select
                 value={this.props.book.shelf || "none"}
                 onChange={(event) => {
-                  this.props.updateShelf(this.props.book, event.target.value)
+                  this.props.updateShelf(this.props.book, event.target.value);
                 }}
               >
                 <option value="move" disabled>
@@ -38,7 +36,8 @@ class Book extends Component {
           </div>
           <div className="book-title">{this.props.book.title}</div>
           <div className="book-authors">
-            {this.props.book.authors || "Sorry, no author listed."}
+            {(this.props.book.authors && this.props.book.authors[0]) ||
+              "Sorry, no author listed."}
           </div>
         </div>
       </li>
