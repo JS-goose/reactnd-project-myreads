@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Book from "./Book";
 import * as BooksAPI from "../BooksAPI";
+
+/*updateQuery and submitSearch functions were used with permission from the code creator, Ryan White, 
+and can be found here https://www.youtube.com/watch?v=acJHkd6K5kI&t=0s&list=PLKC17wty6rS1XVZbRlWjYU0WVsIoJyO3s&index=4*/
 
 class SearchPage extends Component {
   constructor(props) {
@@ -8,6 +12,7 @@ class SearchPage extends Component {
     this.state = {
       books: [],
       results: [],
+      query: "",
     };
   }
 
@@ -26,6 +31,24 @@ class SearchPage extends Component {
     });
   };
 
+  updateQuery = (query) => {
+    this.setState({ query: query }, this.submitSearch);
+  };
+
+  submitSearch() {
+    if (this.state.query === "" || this.state.query === undefined) {
+      return this.setState({ results: [] });
+    }
+    BooksAPI.search(this.state.query.trim()).then((response) => {
+      console.log(response);
+      if (response.error) {
+        return this.setState({ results: [] });
+      } else {
+        return this.setState({ results: response });
+      }
+    });
+  }
+
   render() {
     return (
       <div className="search-books">
@@ -42,11 +65,20 @@ class SearchPage extends Component {
                   However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
                   you don't find a specific author or title. Every search is limited by search terms.
                 */}
-            <input type="text" placeholder="Search by title or author" />
+            <input
+              type="text"
+              placeholder="Search by title or author"
+              value={this.state.query}
+              onChange={(event) => this.updateQuery(event.target.value)}
+            />
           </div>
         </div>
         <div className="search-books-results">
-          <ol className="books-grid" />
+          <ol className="books-grid">
+            {this.state.results.map((item, key) => (
+              <Book key={key} book={item} />
+            ))}
+          </ol>
         </div>
       </div>
     );
