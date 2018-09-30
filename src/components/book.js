@@ -13,7 +13,7 @@ class Book extends Component {
               style={{
                 width: 128,
                 height: 188,
-                backgroundImage: `url("${(this.props.book.imageLinks.thumbnail && this.props.book.imageLinks.) ||
+                backgroundImage: `url("${this.props.book.imageLinks && this.props.book.imageLinks.thumbnail ||
                   "No image available"}")`,
               }}
             />
