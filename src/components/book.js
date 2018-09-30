@@ -22,7 +22,7 @@ class Book extends Component {
               }}
             />
             <div className="book-shelf-changer">
-              <select>
+              <select value={this.props.book.shelf || "none"}>
                 <option value="move" disabled>
                   Move to...
                 </option>
