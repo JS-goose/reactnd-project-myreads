@@ -44,6 +44,10 @@ class SearchPage extends Component {
       if (response.error) {
         return this.setState({ results: [] });
       } else {
+        response.forEach(b => {
+          let find = this.state.books.filter(book => book.id === b.id);
+          b.shelf = find[0] ? find.shelf : null;
+        });
         return this.setState({ results: response });
       }
     });
