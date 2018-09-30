@@ -40,15 +40,12 @@ class SearchPage extends Component {
       return this.setState({ results: [] });
     }
     BooksAPI.search(this.state.query.trim()).then((response) => {
-      console.log(response);
       if (response.error) {
         return this.setState({ results: [] });
       } else {
-        response.forEach(b => {
-          let find = this.state.books.filter(book => book.id === b.id);
-          // b.shelf = find[0] ? find.shelf : null;
-          if(find[0]) {
-            console.log('match')
+        response.forEach((b) => {
+          let find = this.state.books.filter((book) => book.id === b.id);
+          if (find[0]) {
             b.shelf = find[0].shelf;
           }
         });
@@ -83,9 +80,9 @@ class SearchPage extends Component {
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
-            {this.state.results.map((item, key) => 
-               <Book updateShelf={this.updateShelf} key={key} book={item} />
-            )}
+            {this.state.results.map((item, key) => (
+              <Book updateShelf={this.updateShelf} key={key} book={item} />
+            ))}
           </ol>
         </div>
       </div>
