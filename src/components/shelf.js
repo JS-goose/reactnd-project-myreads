@@ -14,7 +14,7 @@ componentDidMount() {
         <div className="bookshelf-books">
         <ol className="books-grid">
           {
-              this.props.books.map((book, key) => <Book book={book} key={key} />
+              this.props.books.map((book, key) => <Book updateShelf={this.props.updateShelf} book={book} key={key} />
               )
           }
           </ol>

@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import * as BooksAPI from "../BooksAPI";
 
 class Book extends Component {
-  componentDidMount() {
-    console.log(this);
-  }
   render() {
     return (
       <li>
@@ -22,7 +20,12 @@ class Book extends Component {
               }}
             />
             <div className="book-shelf-changer">
-              <select value={this.props.book.shelf || "none"}>
+              <select
+                value={this.props.book.shelf || "none"}
+                onChange={(event) => {
+                  this.props.updateShelf(this.props.book, event.target.value)
+                }}
+              >
                 <option value="move" disabled>
                   Move to...
                 </option>
@@ -34,7 +37,9 @@ class Book extends Component {
             </div>
           </div>
           <div className="book-title">{this.props.book.title}</div>
-          <div className="book-authors">{this.props.book.authors || "Sorry, no author listed."}</div>
+          <div className="book-authors">
+            {this.props.book.authors || "Sorry, no author listed."}
+          </div>
         </div>
       </li>
     );
