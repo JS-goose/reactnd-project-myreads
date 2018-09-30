@@ -7,6 +7,7 @@ class SearchPage extends Component {
     super(props);
     this.state = {
       books: [],
+      results: [],
     };
   }
 
