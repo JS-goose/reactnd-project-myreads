@@ -47,6 +47,10 @@ class SearchPage extends Component {
         response.forEach(b => {
           let find = this.state.books.filter(book => book.id === b.id);
           b.shelf = find[0] ? find.shelf : null;
+          // if(find[0]) {
+          //   console.log('match')
+          //   b.shelf = find[0].shelf;
+          // }
         });
         return this.setState({ results: response });
       }
@@ -79,9 +83,9 @@ class SearchPage extends Component {
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
-            {this.state.results.map((item, key) => (
+            {this.state.results.map((item, key) => {
               <Book key={key} book={item} />
-            ))}
+            })}
           </ol>
         </div>
       </div>
