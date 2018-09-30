@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Book from "./Book";
 import * as BooksAPI from "../BooksAPI";
 
-/*updateQuery and submitSearch functions came from Ryan White (with some changes I made), 
+/*updateQuery and submitSearch functions came from Ryan Waite (with some changes I made), 
 and can be found here https://www.youtube.com/watch?v=acJHkd6K5kI&t=0s&list=PLKC17wty6rS1XVZbRlWjYU0WVsIoJyO3s&index=4*/
 
 class SearchPage extends Component {
